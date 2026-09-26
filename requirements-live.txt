@@ -1,0 +1,9 @@
+# Build the verified dependency-metadata patch first:
+#   python scripts/build_lighter_wheel.py
+# Source/native/Python payloads are unchanged; see OPERATIONS.md for provenance.
+# Offline checks do not establish real fill behavior or production compatibility.
+-r requirements.txt
+hyperliquid-python-sdk==0.24.0
+eth-account==0.13.7
+urllib3==2.8.0
+./.wheelhouse/lighter_sdk-1.1.4-py3-none-any.whl

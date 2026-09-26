@@ -1,0 +1,648 @@
+{
+  "mode": "public-record-only",
+  "pair_id": "sndk-io-lighter-rh-b10eef31e4",
+  "duration_sec": 76.22,
+  "both_fresh_samples": 37,
+  "samples": 38,
+  "minute_rows": 2,
+  "journal_opened": false,
+  "trades": 0,
+  "hedges": 0,
+  "all_background_tasks_done": true,
+  "output_directory": "/var/folders/49/djlhnf712rsdyy4x4d7d_q7h0000gn/T/entropy-public-smoke-kzvgn1an",
+  "observations": [
+    {
+      "elapsed": 0.0,
+      "books": {}
+    },
+    {
+      "elapsed": 2.001,
+      "books": {
+        "entropy": {
+          "ready": true,
+          "fresh": true,
+          "bid": 1771.7,
+          "ask": 1771.8
+        },
+        "hedge": {
+          "ready": true,
+          "fresh": true,
+          "bid": 1772.16,
+          "ask": 1772.75
+        }
+      }
+    },
+    {
+      "elapsed": 4.002,
+      "books": {
+        "entropy": {
+          "ready": true,
+          "fresh": true,
+          "bid": 1771.7,
+          "ask": 1771.8
+        },
+        "hedge": {
+          "ready": true,
+          "fresh": true,
+          "bid": 1772.16,
+          "ask": 1772.74
+        }
+      }
+    },
+    {
+      "elapsed": 6.007,
+      "books": {
+        "entropy": {
+          "ready": true,
+          "fresh": true,
+          "bid": 1771.7,
+          "ask": 1771.8
+        },
+        "hedge": {
+          "ready": true,
+          "fresh": true,
+          "bid": 1772.15,
+          "ask": 1772.74
+        }
+      }
+    },
+    {
+      "elapsed": 8.007,
+      "books": {
+        "entropy": {
+          "ready": true,
+          "fresh": true,
+          "bid": 1771.6,
+          "ask": 1771.7
+        },
+        "hedge": {
+          "ready": true,
+          "fresh": true,
+          "bid": 1772.16,
+          "ask": 1772.63
+        }
+      }
+    },
+    {
+      "elapsed": 10.009,
+      "books": {
+        "entropy": {
+          "ready": true,
+          "fresh": true,
+          "bid": 1771.6,
+          "ask": 1771.7
+        },
+        "hedge": {
+          "ready": true,
+          "fresh": true,
+          "bid": 1772.16,
+          "ask": 1772.74
+        }
+      }
+    },
+    {
+      "elapsed": 12.01,
+      "books": {
+        "entropy": {
+          "ready": true,
+          "fresh": true,
+          "bid": 1771.6,
+          "ask": 1771.7
+        },
+        "hedge": {
+          "ready": true,
+          "fresh": true,
+          "bid": 1772.16,
+          "ask": 1772.74
+        }
+      }
+    },
+    {
+      "elapsed": 14.011,
+      "books": {
+        "entropy": {
+          "ready": true,
+          "fresh": true,
+          "bid": 1771.6,
+          "ask": 1771.7
+        },
+        "hedge": {
+          "ready": true,
+          "fresh": true,
+          "bid": 1772.16,
+          "ask": 1772.74
+        }
+      }
+    },
+    {
+      "elapsed": 16.013,
+      "books": {
+        "entropy": {
+          "ready": true,
+          "fresh": true,
+          "bid": 1771.6,
+          "ask": 1771.7
+        },
+        "hedge": {
+          "ready": true,
+          "fresh": true,
+          "bid": 1772.16,
+          "ask": 1772.74
+        }
+      }
+    },
+    {
+      "elapsed": 18.014,
+      "books": {
+        "entropy": {
+          "ready": true,
+          "fresh": true,
+          "bid": 1771.6,
+          "ask": 1771.7
+        },
+        "hedge": {
+          "ready": true,
+          "fresh": true,
+          "bid": 1772.17,
+          "ask": 1772.74
+        }
+      }
+    },
+    {
+      "elapsed": 20.015,
+      "books": {
+        "entropy": {
+          "ready": true,
+          "fresh": true,
+          "bid": 1771.6,
+          "ask": 1771.7
+        },
+        "hedge": {
+          "ready": true,
+          "fresh": true,
+          "bid": 1772.21,
+          "ask": 1772.73
+        }
+      }
+    },
+    {
+      "elapsed": 22.016,
+      "books": {
+        "entropy": {
+          "ready": true,
+          "fresh": true,
+          "bid": 1771.6,
+          "ask": 1771.7
+        },
+        "hedge": {
+          "ready": true,
+          "fresh": true,
+          "bid": 1772.06,
+          "ask": 1772.56
+        }
+      }
+    },
+    {
+      "elapsed": 24.017,
+      "books": {
+        "entropy": {
+          "ready": true,
+          "fresh": true,
+          "bid": 1771.0,
+          "ask": 1771.1
+        },
+        "hedge": {
+          "ready": true,
+          "fresh": true,
+          "bid": 1772.06,
+          "ask": 1772.42
+        }
+      }
+    },
+    {
+      "elapsed": 26.018,
+      "books": {
+        "entropy": {
+          "ready": true,
+          "fresh": true,
+          "bid": 1771.0,
+          "ask": 1771.1
+        },
+        "hedge": {
+          "ready": true,
+          "fresh": true,
+          "bid": 1771.76,
+          "ask": 1772.41
+        }
+      }
+    },
+    {
+      "elapsed": 28.019,
+      "books": {
+        "entropy": {
+          "ready": true,
+          "fresh": true,
+          "bid": 1771.0,
+          "ask": 1771.1
+        },
+        "hedge": {
+          "ready": true,
+          "fresh": true,
+          "bid": 1771.77,
+          "ask": 1772.34
+        }
+      }
+    },
+    {
+      "elapsed": 30.02,
+      "books": {
+        "entropy": {
+          "ready": true,
+          "fresh": true,
+          "bid": 1771.0,
+          "ask": 1771.3
+        },
+        "hedge": {
+          "ready": true,
+          "fresh": true,
+          "bid": 1771.77,
+          "ask": 1772.26
+        }
+      }
+    },
+    {
+      "elapsed": 32.02,
+      "books": {
+        "entropy": {
+          "ready": true,
+          "fresh": true,
+          "bid": 1771.0,
+          "ask": 1771.3
+        },
+        "hedge": {
+          "ready": true,
+          "fresh": true,
+          "bid": 1771.8,
+          "ask": 1772.54
+        }
+      }
+    },
+    {
+      "elapsed": 34.022,
+      "books": {
+        "entropy": {
+          "ready": true,
+          "fresh": true,
+          "bid": 1771.0,
+          "ask": 1771.3
+        },
+        "hedge": {
+          "ready": true,
+          "fresh": true,
+          "bid": 1771.85,
+          "ask": 1772.46
+        }
+      }
+    },
+    {
+      "elapsed": 36.024,
+      "books": {
+        "entropy": {
+          "ready": true,
+          "fresh": true,
+          "bid": 1771.1,
+          "ask": 1771.2
+        },
+        "hedge": {
+          "ready": true,
+          "fresh": true,
+          "bid": 1771.86,
+          "ask": 1772.49
+        }
+      }
+    },
+    {
+      "elapsed": 38.026,
+      "books": {
+        "entropy": {
+          "ready": true,
+          "fresh": true,
+          "bid": 1771.1,
+          "ask": 1771.2
+        },
+        "hedge": {
+          "ready": true,
+          "fresh": true,
+          "bid": 1771.86,
+          "ask": 1772.51
+        }
+      }
+    },
+    {
+      "elapsed": 40.029,
+      "books": {
+        "entropy": {
+          "ready": true,
+          "fresh": true,
+          "bid": 1771.1,
+          "ask": 1771.2
+        },
+        "hedge": {
+          "ready": true,
+          "fresh": true,
+          "bid": 1771.87,
+          "ask": 1772.51
+        }
+      }
+    },
+    {
+      "elapsed": 42.032,
+      "books": {
+        "entropy": {
+          "ready": true,
+          "fresh": true,
+          "bid": 1771.1,
+          "ask": 1771.2
+        },
+        "hedge": {
+          "ready": true,
+          "fresh": true,
+          "bid": 1771.99,
+          "ask": 1772.57
+        }
+      }
+    },
+    {
+      "elapsed": 44.032,
+      "books": {
+        "entropy": {
+          "ready": true,
+          "fresh": true,
+          "bid": 1771.1,
+          "ask": 1771.2
+        },
+        "hedge": {
+          "ready": true,
+          "fresh": true,
+          "bid": 1771.99,
+          "ask": 1772.51
+        }
+      }
+    },
+    {
+      "elapsed": 46.034,
+      "books": {
+        "entropy": {
+          "ready": true,
+          "fresh": true,
+          "bid": 1771.3,
+          "ask": 1771.6
+        },
+        "hedge": {
+          "ready": true,
+          "fresh": true,
+          "bid": 1771.99,
+          "ask": 1772.5
+        }
+      }
+    },
+    {
+      "elapsed": 48.038,
+      "books": {
+        "entropy": {
+          "ready": true,
+          "fresh": true,
+          "bid": 1771.3,
+          "ask": 1771.6
+        },
+        "hedge": {
+          "ready": true,
+          "fresh": true,
+          "bid": 1771.99,
+          "ask": 1772.45
+        }
+      }
+    },
+    {
+      "elapsed": 50.039,
+      "books": {
+        "entropy": {
+          "ready": true,
+          "fresh": true,
+          "bid": 1771.3,
+          "ask": 1771.6
+        },
+        "hedge": {
+          "ready": true,
+          "fresh": true,
+          "bid": 1771.99,
+          "ask": 1772.45
+        }
+      }
+    },
+    {
+      "elapsed": 52.04,
+      "books": {
+        "entropy": {
+          "ready": true,
+          "fresh": true,
+          "bid": 1771.3,
+          "ask": 1771.6
+        },
+        "hedge": {
+          "ready": true,
+          "fresh": true,
+          "bid": 1771.99,
+          "ask": 1772.59
+        }
+      }
+    },
+    {
+      "elapsed": 54.043,
+      "books": {
+        "entropy": {
+          "ready": true,
+          "fresh": true,
+          "bid": 1771.3,
+          "ask": 1771.6
+        },
+        "hedge": {
+          "ready": true,
+          "fresh": true,
+          "bid": 1771.99,
+          "ask": 1772.59
+        }
+      }
+    },
+    {
+      "elapsed": 56.047,
+      "books": {
+        "entropy": {
+          "ready": true,
+          "fresh": true,
+          "bid": 1771.3,
+          "ask": 1771.6
+        },
+        "hedge": {
+          "ready": true,
+          "fresh": true,
+          "bid": 1771.99,
+          "ask": 1772.59
+        }
+      }
+    },
+    {
+      "elapsed": 58.048,
+      "books": {
+        "entropy": {
+          "ready": true,
+          "fresh": true,
+          "bid": 1771.4,
+          "ask": 1771.5
+        },
+        "hedge": {
+          "ready": true,
+          "fresh": true,
+          "bid": 1771.99,
+          "ask": 1772.59
+        }
+      }
+    },
+    {
+      "elapsed": 60.049,
+      "books": {
+        "entropy": {
+          "ready": true,
+          "fresh": true,
+          "bid": 1771.4,
+          "ask": 1771.5
+        },
+        "hedge": {
+          "ready": true,
+          "fresh": true,
+          "bid": 1772.07,
+          "ask": 1772.34
+        }
+      }
+    },
+    {
+      "elapsed": 62.05,
+      "books": {
+        "entropy": {
+          "ready": true,
+          "fresh": true,
+          "bid": 1771.4,
+          "ask": 1771.5
+        },
+        "hedge": {
+          "ready": true,
+          "fresh": true,
+          "bid": 1771.96,
+          "ask": 1772.34
+        }
+      }
+    },
+    {
+      "elapsed": 64.053,
+      "books": {
+        "entropy": {
+          "ready": true,
+          "fresh": true,
+          "bid": 1771.4,
+          "ask": 1771.5
+        },
+        "hedge": {
+          "ready": true,
+          "fresh": true,
+          "bid": 1771.96,
+          "ask": 1772.34
+        }
+      }
+    },
+    {
+      "elapsed": 66.054,
+      "books": {
+        "entropy": {
+          "ready": true,
+          "fresh": true,
+          "bid": 1771.4,
+          "ask": 1771.5
+        },
+        "hedge": {
+          "ready": true,
+          "fresh": true,
+          "bid": 1771.96,
+          "ask": 1772.34
+        }
+      }
+    },
+    {
+      "elapsed": 68.055,
+      "books": {
+        "entropy": {
+          "ready": true,
+          "fresh": true,
+          "bid": 1771.4,
+          "ask": 1771.5
+        },
+        "hedge": {
+          "ready": true,
+          "fresh": true,
+          "bid": 1772.07,
+          "ask": 1772.33
+        }
+      }
+    },
+    {
+      "elapsed": 70.057,
+      "books": {
+        "entropy": {
+          "ready": true,
+          "fresh": true,
+          "bid": 1771.4,
+          "ask": 1771.5
+        },
+        "hedge": {
+          "ready": true,
+          "fresh": true,
+          "bid": 1772.07,
+          "ask": 1772.33
+        }
+      }
+    },
+    {
+      "elapsed": 72.063,
+      "books": {
+        "entropy": {
+          "ready": true,
+          "fresh": true,
+          "bid": 1771.4,
+          "ask": 1771.5
+        },
+        "hedge": {
+          "ready": true,
+          "fresh": true,
+          "bid": 1772.07,
+          "ask": 1772.33
+        }
+      }
+    },
+    {
+      "elapsed": 74.065,
+      "books": {
+        "entropy": {
+          "ready": true,
+          "fresh": true,
+          "bid": 1771.3,
+          "ask": 1771.5
+        },
+        "hedge": {
+          "ready": true,
+          "fresh": true,
+          "bid": 1772.07,
+          "ask": 1772.33
+        }
+      }
+    }
+  ]
+}

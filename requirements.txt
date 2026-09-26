@@ -1,0 +1,8 @@
+# Base dependencies for recording and offline configuration checks.
+# requirements-lock.txt captures the CPython 3.13 environment tested locally.
+aiohttp>=3.9,<4
+websockets>=12,<18
+python-socks[asyncio]>=2.8,<3
+python-dotenv>=1.0,<2
+PyYAML>=6,<7
+rich>=13,<16

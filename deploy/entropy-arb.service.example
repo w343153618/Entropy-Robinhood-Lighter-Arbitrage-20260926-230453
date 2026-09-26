@@ -1,0 +1,33 @@
+# TEMPLATE ONLY. Replace paths/symbol/deployment and review OPERATIONS.md.
+# This file is not installed or started by the project.
+[Unit]
+Description=Entropy arbitrage bot (one dedicated account/pair)
+Wants=network-online.target
+After=network-online.target
+StartLimitIntervalSec=600
+StartLimitBurst=3
+
+[Service]
+Type=simple
+User=entropy-arb
+Group=entropy-arb
+WorkingDirectory=/var/lib/entropy-arb
+ExecStart=/opt/entropy-arb/.venv/bin/entropy-rh-arb --live --symbol REPLACE_SYMBOL --hedge lighter-rh --config /etc/entropy-arb/config.yaml --env-file /etc/entropy-arb/credentials.env --no-dashboard
+Restart=on-failure
+RestartSec=15
+KillSignal=SIGTERM
+# Must be >= execution.shutdown_timeout_sec + 15. Default app budget is 30s.
+TimeoutStopSec=90
+KillMode=control-group
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectHome=true
+ProtectSystem=strict
+ReadWritePaths=/var/lib/entropy-arb
+LimitNOFILE=8192
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

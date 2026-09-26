@@ -1,0 +1,25 @@
+# Tested snapshot: CPython 3.13, macOS arm64, 2026-09-26.
+# Base + offline development tools; signing SDKs are pinned separately.
+# Resolve/verify platform wheels on Linux; this is not a cross-platform live lock.
+aiohappyeyeballs==2.7.1
+aiohttp==3.14.3
+aiosignal==1.4.0
+attrs==26.1.0
+frozenlist==1.8.0
+idna==3.20
+iniconfig==2.3.0
+markdown-it-py==4.2.0
+mdurl==0.1.2
+multidict==6.9.1
+packaging==26.3
+pluggy==1.6.0
+propcache==0.5.4
+Pygments==2.21.0
+pytest==9.1.1
+python-dotenv==1.2.3
+python-socks==2.8.2
+PyYAML==6.0.3
+rich==15.0.0
+ruff==0.16.9
+websockets==17.1
+yarl==1.25.1

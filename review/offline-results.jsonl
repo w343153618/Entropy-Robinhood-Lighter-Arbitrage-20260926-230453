@@ -1,0 +1,13 @@
+{"case": "unknown_outcome_has_no_barrier", "position_reads": [0, 0], "can_open_again": true, "halted": false}
+{"case": "one_nonce_gap_keeps_ghost_bid", "best_bid": 100.0, "fresh": true, "resubscribe_messages": 0}
+{"case": "accepted_order_timeout_misclassified", "returned": {"status": "send-failed", "filled_base": 0.0, "avg_px": null, "err": "TimeoutError: response lost after acceptance", "unresolved": false}, "late_fill": 1.0, "pending_watchers": 0}
+{"case": "allowed_slippage_exceeds_signal", "planned_edge_usd": 0.04000000000000625, "actual_edge_usd": -0.9601999999999862, "per_leg_slippage_bps": 50.0}
+{"case": "submission_not_bounded_by_settle_timeout", "settle_timeout_sec": 0.02, "still_pending_after_sec": 0.05}
+{"case": "partial_hedge_leaves_residual", "residual_net_base": 1, "tolerance_base": 0.001, "hedge_calls": 1, "can_open_again": true}
+{"case": "shutdown_closes_with_pending_order", "pending_executions_at_close": 1, "adapter_close_calls": [1, 1], "shutdown_budget_sec": 2.01}
+{"case": "depth_walk_exceeds_caps", "configured_order_cap_usd": 100, "each_venue_cap_usd": 100, "qty": 1.0, "buy_notional_usd": 105.0, "sell_notional_usd": 120.0}
+{"case": "pong_keeps_old_hl_snapshot_fresh", "snapshot_age_sec": 900, "freshness_limit_sec": 10, "reported_fresh": true}
+{"case": "recorder_cancel_loses_tail", "unwritten_samples": 1, "csv_exists": false}
+{"case": "nan_config_disables_hedging", "net_base": 1, "nan_accepted": true, "hedge_calls": 0}
+{"case": "mixed_market_calibration", "rows": 2, "median_premium_bps": 500.0, "has_symbol": false, "has_hedge_venue": false}
+{"case": "console_entrypoint_missing", "entrypoint": "entropy_robinhood_lighter_arbitrage.main:main", "module_exists": false}

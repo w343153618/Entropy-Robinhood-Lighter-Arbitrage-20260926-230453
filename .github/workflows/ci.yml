@@ -1,0 +1,39 @@
+name: Offline checks
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - run: python -m pip install -e '.[dev]' build
+      - run: python -m pytest tests/ -q
+      - run: ruff check entropy_robinhood_lighter_arbitrage tests main.py tools scripts
+      - run: python -m build --wheel --outdir /tmp/arb-dist
+      - run: entropy-rh-arb --check-config --symbol SNDK --hedge lighter-rh --config config.example.yaml
+      - name: Wheel CLI smoke outside checkout
+        run: |
+          python -m venv /tmp/arb-wheel
+          /tmp/arb-wheel/bin/python -m pip install /tmp/arb-dist/*.whl
+          cd /tmp
+          /tmp/arb-wheel/bin/entropy-rh-arb --help
+  sdk-import:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Reproducible dependency-only SDK repair
+        run: python scripts/build_lighter_wheel.py
+      - run: python -m pip install -r requirements-live-lock.txt
+      - run: python -m pip check
+      - name: No-credential SDK imports (no signer initialization or provider calls)
+        run: python -c "import lighter, eth_account; from hyperliquid.utils import signing; print('SDK imports passed')"

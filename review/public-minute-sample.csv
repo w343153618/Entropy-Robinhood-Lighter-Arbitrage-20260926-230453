@@ -1,0 +1,3 @@
+schema_version,bar_id,pair_id,symbol,entropy_dex,hedge_venue,minute_ts,time_utc,entropy_bid,entropy_ask,hedge_bid,hedge_ask,premium_open_bps,premium_high_bps,premium_low_bps,premium_close_bps,premium_mean_bps,premium_std_bps,sell_edge_mean_bps,sell_edge_max_bps,buy_edge_mean_bps,buy_edge_max_bps,samples
+2,ba9cd43f0ea14be88cf49598e4964aaa,sndk-io-lighter-rh-b10eef31e4,SNDK,io,lighter-rh,1790432400,2026-09-26 14:20:00,1771.6,1771.7,1772.16,1772.74,-3.9775,-3.6391,-4.5135,-4.5135,-4.1957,0.3172,-6.0698,-5.2464,2.3216,2.5964,15
+2,42c5dec90fc74acc92c818bf0a0e6bd0,sndk-io-lighter-rh-b10eef31e4,SNDK,io,lighter-rh,1790432460,2026-09-26 14:21:00,1771.3,1771.5,1772.07,1772.33,-4.5135,-3.3291,-6.7147,-4.5142,-4.8847,0.8023,-6.6555,-4.6264,3.1143,5.4204,60

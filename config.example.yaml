@@ -1,0 +1,121 @@
+# Entropy-Robinhood-Lighter-Arbitrage strategy configuration
+#
+#   cp config.example.yaml config.yaml     then edit
+#
+# This file IS the strategy. Credentials never live here — they go in .env
+# (see .env.example). Every key is validated: a typo is a startup error, not
+# a setting that silently does nothing.
+#
+# WHICH MARKETS to trade is NOT in this file — you state it explicitly on
+# every start with command-line flags:
+#     python3 main.py --record-only --symbol SNDK --hedge lighter-rh
+# Entropy is always one leg; --hedge picks the other (one of three):
+#   lighter      Lighter mainnet            (USDC, 0 bps taker)
+#   lighter-rh   Lighter Robinhood chain    (USDG, 0 bps taker)
+#   tradexyz     Hyperliquid trade.xyz dex  (USDC, ~1 bps taker)
+
+# ============================ THE SIGNAL ============================
+# premium_bps = (Entropy price / hedge price - 1) * 10000
+#
+#   SELL entropy + BUY hedge   when executable premium >= midline + upper
+#   BUY entropy + SELL hedge   when executable premium <= midline - lower
+#
+# Both hurdles include configured taker fees. Observed opportunities do not
+# guarantee profit: execution, funding and recovery costs still matter.
+#
+# midline_bps is a number YOU derive from recorded data. Run the bot
+# (--record-only) to collect logs/{pair}/minutes-YYYY-MM-DD.csv, then:
+# python3 tools/analyze.py --csv 'logs/<actual-pair-id>/minutes-*.csv'
+# Stop/restart within one minute can create overlapping partial bars; the
+# analyzer reports and excludes that entire minute instead of merging samples.
+thresholds:
+  midline_bps: 0.0     # persistent premium center
+  upper_bps: 4.0       # entry above midline: sell entropy
+  lower_bps: 4.0       # entry below midline: buy entropy
+
+# ======================== VENUES ==============================
+entropy:
+  dex: io                    # Entropy's dex name on Hyperliquid
+  taker_fee_bps: 0.0         # taker fee
+  max_position_usd: 1000     # position cap (USD)
+  max_orders_per_min: 120    # sliding 60s; >=3, reserves two sends for recovery
+
+hedge:
+  # taker_fee_bps: override only after verifying your account's actual fee.
+  # If omitted, Lighter venues default to 0 and tradexyz defaults to 1 bps.
+  max_position_usd: 1000
+  max_orders_per_min: 30     # >=3; Lighter's ceiling is ~40/min
+
+# ========================= SIZING ===============================
+sizing:
+  take_fraction: 0.5           # fraction of crossable depth to take
+  max_order_notional_usd: 500  # per-slice cap
+  min_order_notional_usd: 10   # skip dust
+
+# ==================== INVENTORY LADDER ==========================
+# Extra bps required once a venue's position passes floor_frac of its cap in
+# the adding direction — ramps linearly to scale_bps at 100% of the cap.
+# Slows down one-sided accumulation without hard-stopping the strategy.
+# scale_bps: 0 disables.
+inventory:
+  scale_bps: 10.0
+  floor_frac: 0
+
+# ======================= EXECUTION ==============================
+execution:
+  premium_persist_sec: 0.3   # edge must persist this long before firing
+  cooldown_sec: 0.0          # min gap between executions
+  settle_timeout_sec: 10.0   # wait for fill confirmation
+  leg_slippage_bps: 1.0      # per leg, beyond worst executable level
+  hedge_slippage_bps: 20.0   # price protection on delta hedges
+  net_tolerance_base: 0.001  # max tolerated net delta (base units)
+  max_consecutive_errors: 3  # halt after N straight failures
+  rate_limit_pause_sec: 10.0 # pause a 429'd venue this long
+  staleness_sec: 10.0        # a feed older than this is stale
+  reconcile_sec: 15.0        # on-chain position sync cadence
+  venue_probe_sec: 30.0      # probe cadence for a down venue
+  http_keepalive_sec: 10.0   # keep order-path TLS warm; 0 = off
+  submit_timeout_sec: 5.0    # stop waiting for a send; unknown outcomes enter recovery
+  recovery_poll_sec: 2.0     # read-only recovery polling interval
+  recovery_timeout_sec: 120.0 # then halt and require human reconciliation
+  shutdown_timeout_sec: 30.0 # bounded shutdown; journal preserves unresolved orders
+  reconcile_grace_sec: 5.0   # allow settlement visibility before position sync
+
+# ===================== UNATTENDED RISK GATES ======================
+risk:
+  net_tolerance_usd: 1.0
+  max_dust_usd: 10.0         # hard cap for residual exposure below venue minimums
+  min_free_collateral_usd: 25.0
+  balance_staleness_sec: 90.0
+  position_staleness_sec: 60.0
+  # Persisted peak-to-current account equity drawdown; restart does not reset it.
+  # Includes funding and external deposits/withdrawals. Use dedicated accounts.
+  max_session_loss_usd: 50.0
+
+runtime:
+  state_db: state/{pair}/orders.sqlite3
+  health_file: logs/{pair}/health.json
+  min_disk_free_mb: 256.0    # stop new exposure before storage fills
+
+# ================== DATA RECORDER ===============================
+# Always-on while the bot runs: samples both real order books 1/sec and
+# writes one CSV row per minute. This is the input for tools/analyze.py.
+recorder:
+  enabled: true
+  csv: logs/{pair}/minutes.csv # {pair} is replaced with a safe, unique market id
+  rotate_daily: true        # writes minutes-YYYY-MM-DD.csv (UTC bar date)
+  max_pending_rows: 1440    # bounded retry buffer; collection pauses when full
+
+# ==================== LOGGING & DASHBOARD ========================
+# On a terminal the bot shows a live Rich dashboard (books, signal, positions,
+# PnL, recent executions); log lines then go to `file` instead of the console.
+# Off-terminal runs (nohup/systemd) fall back to plain console logs
+# automatically; --no-dashboard forces that.
+logging:
+  level: INFO
+  status_interval_sec: 30.0
+  trades_csv: logs/{pair}/trades.csv # writes trades-YYYY-MM-DD.csv (UTC)
+  dashboard: true
+  file: logs/{pair}/engine.log
+  max_bytes: 10485760
+  backup_count: 5

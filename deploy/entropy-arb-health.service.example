@@ -1,0 +1,13 @@
+# TEMPLATE ONLY. Connect failures to your existing alert system, not restart.
+[Unit]
+Description=Read-only arbitrage health alarm
+
+[Service]
+Type=oneshot
+User=entropy-arb
+Group=entropy-arb
+ExecStart=/opt/entropy-arb/.venv/bin/python /opt/entropy-arb/tools/healthcheck.py /var/lib/entropy-arb/logs/REPLACE_PAIR_ID/health.json --max-age 15 --pair-id REPLACE_PAIR_ID
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true

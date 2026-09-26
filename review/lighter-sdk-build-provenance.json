@@ -1,0 +1,22 @@
+{
+  "original_sha256": "2627ca9df7ad60dcf16a84f62e0358ffef883a3b53964a20dd4df6dda60b1937",
+  "patched_sha256": "04a886111d433ed97fa049c21c3f227e8511fe539bc20e797ccf84bb2683354a",
+  "changed_files": [
+    "lighter_sdk-1.1.4.dist-info/METADATA",
+    "lighter_sdk-1.1.4.dist-info/RECORD"
+  ],
+  "old_constraint": "Requires-Dist: urllib3<2.1.0,>=1.25.3",
+  "new_constraint": "Requires-Dist: urllib3<3,>=2.7.0",
+  "source_commit": "a38b6405f362fc14a562fe7a97df03f3ee756bc1",
+  "source_url": "https://codeload.github.com/elliottech/lighter-python/tar.gz/a38b6405f362fc14a562fe7a97df03f3ee756bc1",
+  "source_sha256": "8f7fddb7a887bbf81450a08a5dd2366f5a79ccd8d23807d390ef179fc859e8f6",
+  "source_date_epoch": "1700000000",
+  "build_requirements": [
+    "setuptools==83.0.0",
+    "wheel==0.46.3",
+    "packaging==26.3"
+  ],
+  "python": "3.13.15",
+  "payload_invariant": true,
+  "repeated_builds_identical": true
+}
