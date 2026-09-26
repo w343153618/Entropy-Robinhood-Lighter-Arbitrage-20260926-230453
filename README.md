@@ -70,6 +70,8 @@ BUY Entropy + SELL hedge：反向门槛为 lower - midline
 
 `midline_bps` 表示你从可靠采样估计的正常价差；`upper_bps`、`lower_bps` 表示两方向的入场幅度。库存梯度在加仓方向提高门槛。负向门槛可以出现于非零中轴，但错误中轴会积累亏损仓位。
 
+`inventory.floor_frac=0` 表示从非零库存开始提高同向加仓门槛；`0.5` 表示超过仓位上限的 50% 才开始提高。前者在相同仓位下要求的价差更高，库存累积限制更早生效。`inventory.scale_bps=0` 才会关闭库存梯度。
+
 规划按可执行深度、实际两腿名义金额和剩余 base 仓位空间向下取整。提交前检查价差门槛、配置费用、订单保护价及各腿仓位 cap。盘口变化、部分成交、资金费、报价币偏离和恢复成本仍可能让实际结果亏损，**不存在收益保证**。
 
 HL 的盘口新鲜度取决于市场快照及服务端时间，pong 仅表示连接活着。Lighter diff 必须严格连续；完整重复区间忽略，缺口/部分重叠/无效 nonce 会清空盘口重新取快照，静默行情还受到周期快照约束。
@@ -89,6 +91,7 @@ HL 的盘口新鲜度取决于市场快照及服务端时间，pong 仅表示连
 | 配置 | 默认值 |
 | --- | --- |
 | `execution.premium_persist_sec` | 0.3 秒 |
+| `inventory.floor_frac` / `scale_bps` | 0 / 10 bps |
 | `execution.leg_slippage_bps` | 每腿 1 bps |
 | `execution.submit_timeout_sec` / `settle_timeout_sec` | 5 / 10 秒 |
 | `execution.recovery_poll_sec` / `recovery_timeout_sec` | 2 / 120 秒 |
@@ -127,6 +130,8 @@ ruff check entropy_robinhood_lighter_arbitrage tests main.py tools scripts
 ```
 
 CI 执行离线测试、静态检查、wheel 构建及安装入口 smoke，另构建可重复 SDK wheel 并做无凭证 import；不读取交易凭证、不发送订单。实盘验收应由操作员在确认部署与账户后完成，并保留独立成交/仓位读回证据。
+
+复核代码时请同时记录仓库 URL 与提交 SHA。原仓库与独立加固仓库的差异、已运行的 CI 和反馈核对见 [2026-09-27 版本复核记录](review/2026-09-27-peer-review-verification.md)。
 
 ## 已知策略风险
 

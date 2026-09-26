@@ -1,6 +1,6 @@
 # 交易执行与长期运行加固记录
 
-审查基线：`b0f02e9e116624e603273c9a52db5cdef559e571`。本次修改保留在工作区，未推送 GitHub、部署服务或发送实盘订单。
+审查基线：`b0f02e9e116624e603273c9a52db5cdef559e571`。本报告在本地加固完成时写成；随后已于 2026-09-26 上传至[独立私有仓库](https://github.com/w343153618/Entropy-Robinhood-Lighter-Arbitrage-20260926-230453)，首次发布提交为 `e4efc3f44e61ae82fae210cd1302c81a145c6c43`。未部署服务或发送实盘订单。2026-09-27 更新发布与 CI 状态，逐项复核见 [版本复核记录](2026-09-27-peer-review-verification.md)。
 
 ## 结论与适用范围
 
@@ -60,7 +60,7 @@ flowchart TD
 
 ## 验证证据
 
-最终完整测试 **193 项通过**；Ruff 与 `git diff --check` 通过。另在真实安全 SDK 可导入的环境中运行完整共享源码测试，仍为 **193 项通过**。Python 为 3.13.15；目标 Linux 的 CI 已配置，但本次没有在生产 Linux 主机执行。
+最终完整测试 **193 项通过**；Ruff 与 `git diff --check` 通过。另在真实安全 SDK 可导入的环境中运行完整共享源码测试，仍为 **193 项通过**。本地 Python 为 3.13.15。首次发布提交的 [GitHub Actions 运行 36251137744](https://github.com/w343153618/Entropy-Robinhood-Lighter-Arbitrage-20260926-230453/actions/runs/36251137744) 已在 Ubuntu / Python 3.13 上成功完成：193 项测试、Ruff、wheel 构建、仓库外安装 CLI、离线配置校验、SDK 构建与无凭证导入。未在生产 Linux 主机执行。
 
 - 测试覆盖配置、深度规划、行情协议、适配器边界、状态日志、真实 Engine 生命周期、健康工具、CLI 和依赖构建。
 - 固定 seed `20260926` 的离线回放：160 个交替方向周期，normal/partial/reject/unknown 各 40 周期，共 412 笔订单、372 笔有成交、92 笔恢复 hedge。在一个未知已接收订单边界中断后使用同一数据库重启。每次未知期间保持可套利行情，断言没有新增订单；每个周期核对本地、日志预期和假交易所仓位一致。
